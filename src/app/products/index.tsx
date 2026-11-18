@@ -5,54 +5,33 @@ import { products } from '../../../store/products.store';
 
 const ProductsScreen = () => {
     return (
-        <SafeAreaView className='flex-1 bg-white px-4' edges={['bottom']}>
+        <SafeAreaView className='flex flex-1 px-4'>
             <FlatList
                 data={products}
                 ListEmptyComponent={<Text>No hay productos</Text>}
                 keyExtractor={(item) => item.id}
-                ItemSeparatorComponent={() => (
-                    <View className='h-[1px] bg-gray-200 my-1' />
-                )}
                 renderItem={({ item }) => (
-                    <View className='flex-row items-center py-3'>
-                        {/* Imagen del producto a la izquierda */}
-                        <Image
-                            source={require('../imagenes/cubo_de_mario.jpeg')}
-                            className='w-16 h-16 mr-4 rounded-lg'
-                            resizeMode='contain'
-                        />
-
-                        {/* Contenedor derecho con la información */}
-                        <View className='flex-1'>
-                            <Text className='text-xl font-work-black text-black'>
-                                {item.title}
-                            </Text>
-
-                            {/* numberOfLines={2} corta el texto con "..." igual que en la imagen */}
-                            <Text
-                                numberOfLines={2}
-                                className='text-gray-600 text-sm mt-0.5 leading-5'
-                            >
-                                {item.description}
-                            </Text>
-
-                            <View className='flex-row justify-between items-center mt-2'>
-                                <Text className='font-work-black text-base text-black'>
-                                    {item.price}€
-                                </Text>
-                                <Link
-                                    href={`/products/${item.id}`}
-                                    className='text-indigo-700 underline text-sm'
-                                >
-                                    Ver detalles
-                                </Link>
-                            </View>
+                    <View className='mt-1'>
+                        <View>
+                            <Image
+                                source={require('../imagenes/cubo_de_mario.jpeg')}
+                                className='w-16 h-16 mr-4 rounded-lg'
+                                resizeMode='contain'
+                            />
+                        </View>
+                        <Text className="text-2xl font-work-black">{item.title}</Text>
+                        <Text className="">{item.description}</Text>
+                        <View className='flex flex-row justify-between mt-1'>
+                            <Text className='font-work-black'>{item.price}€</Text>
+                            <Link href={`/products/${item.id}`} className='text-primary'>
+                                Ver detalles
+                            </Link>
                         </View>
                     </View>
                 )}
             />
         </SafeAreaView>
-    );
-};
+    )
+}
 
-export default ProductsScreen;
+export default ProductsScreen
