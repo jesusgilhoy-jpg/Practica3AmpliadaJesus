@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import "./global.css";
 
+
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {

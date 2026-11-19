@@ -2,6 +2,7 @@ import { Link } from 'expo-router';
 import { FlatList, Image, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { products } from '../../../store/products.store';
+import Cart from '../../components/cart';
 
 const ProductsScreen = () => {
     return (
@@ -32,6 +33,9 @@ const ProductsScreen = () => {
                     </View>
                 )}
             />
+
+            <Cart />
+
         </SafeAreaView>
     )
 }
