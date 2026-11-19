@@ -1,8 +1,8 @@
+import Cart from '@/components/cart';
 import { Link } from 'expo-router';
 import { FlatList, Image, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { products } from '../../../store/products.store';
-import Cart from '../../components/cart';
+import { products } from '../../../../../store/products.store';
 
 const ProductsScreen = () => {
     return (
@@ -16,7 +16,7 @@ const ProductsScreen = () => {
                     <View className='flex-row items-center py-3 border-b border-gray-100'>
 
                         <Image
-                            source={require('../imagenes/cubo_de_mario.jpeg')}
+                            source={item.image}
                             className='w-16 h-16 mr-4 rounded-lg'
                             resizeMode='contain'
                         />
@@ -24,17 +24,18 @@ const ProductsScreen = () => {
                             <Text className="text-2xl font-work-black">{item.title}</Text>
                             <Text className="">{item.description}</Text>
                             <View className='flex flex-row justify-between mt-1'>
-                                <Text className='font-work-black'>{item.price}€</Text>
+                                <Text className='text-xl font-work-black'>{item.price}€</Text>
                                 <Link href={`/products/${item.id}`} className='text-primary'>
                                     Ver detalles
                                 </Link>
                             </View>
+                            <Cart />
                         </View>
                     </View>
                 )}
             />
 
-            <Cart />
+
 
         </SafeAreaView>
     )
